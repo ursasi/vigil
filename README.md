@@ -26,7 +26,7 @@
 ## Why
 
 Laptops sleep. Tunnels die. You close the lid, come back, and your
-`ssh -L 8042:localhost:80 -J jump57 server100` is a corpse — but nothing told you.
+`ssh -L 18080:localhost:80 -J bastion web-01` is a corpse — but nothing told you.
 Now multiply that by a few jump hosts and a handful of port forwards and it stops
 being obvious what is even connected to what.
 
@@ -200,19 +200,19 @@ Stored at `~/Library/Application Support/vigil/config.json`
   "showDockIcon": false,          // menu-bar only by default
   "tunnels": [
     {
-      "id": "server100",
-      "name": "server100 (via jump57)",
-      "host": "server100",        // an ~/.ssh/config Host alias, or an IP / domain
+      "id": "web-01",
+      "name": "web-01 (via bastion)",
+      "host": "web-01",        // an ~/.ssh/config Host alias, or an IP / domain
       "enabled": true,
 
       // all optional — blank means "inherit from ~/.ssh/config"
       "user": "zsh",
-      "port": 20022,
-      "identityFile": "~/.ssh/id_ed25519_server100_mac",
-      "proxyJump": "jump57",
-      "localForwards": ["8042:localhost:80"],   // -L
+      "port": 22,
+      "identityFile": "~/.ssh/id_ed25519",
+      "proxyJump": "bastion",
+      "localForwards": ["18080:localhost:80"],   // -L
       "remoteForwards": ["2222:localhost:22"],  // -R
-      "dynamicForwards": ["127.0.0.1:1080"],    // -D (SOCKS)
+      "dynamicForwards": ["127.0.0.1:11080"],    // -D (SOCKS)
       "sshOptions": { "ExitOnForwardFailure": "no" },
       "extraArgs": [],
 

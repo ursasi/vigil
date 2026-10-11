@@ -26,7 +26,7 @@
 ## 为什么做这个
 
 笔记本会休眠,隧道会断。合上盖子再打开,你那条
-`ssh -L 8042:localhost:80 -J jump57 server100` 已经死了 —— 而**没有任何东西告诉你**。
+`ssh -L 18080:localhost:80 -J bastion web-01` 已经死了 —— 而**没有任何东西告诉你**。
 再叠加几台跳板机和一堆端口转发,"谁连着谁、转发到底通没通"就彻底变成一笔糊涂账。
 
 Vigil 就是来**把这些隧道养着,并告诉你真相**的:
@@ -190,19 +190,19 @@ Vigil 住在**菜单栏**,不在 Dock。点那个眼睛图标打开主窗口。
   "showDockIcon": false,          // 默认只在菜单栏
   "tunnels": [
     {
-      "id": "server100",
-      "name": "server100 (via jump57)",
-      "host": "server100",        // ~/.ssh/config 里的 Host 别名,或 IP / 域名
+      "id": "web-01",
+      "name": "web-01 (via bastion)",
+      "host": "web-01",        // ~/.ssh/config 里的 Host 别名,或 IP / 域名
       "enabled": true,
 
       // 全部可选 —— 留空表示"从 ~/.ssh/config 继承"
       "user": "zsh",
-      "port": 20022,
-      "identityFile": "~/.ssh/id_ed25519_server100_mac",
-      "proxyJump": "jump57",
-      "localForwards": ["8042:localhost:80"],   // -L
+      "port": 22,
+      "identityFile": "~/.ssh/id_ed25519",
+      "proxyJump": "bastion",
+      "localForwards": ["18080:localhost:80"],   // -L
       "remoteForwards": ["2222:localhost:22"],  // -R
-      "dynamicForwards": ["127.0.0.1:1080"],    // -D (SOCKS)
+      "dynamicForwards": ["127.0.0.1:11080"],    // -D (SOCKS)
       "sshOptions": { "ExitOnForwardFailure": "no" },
       "extraArgs": [],
 

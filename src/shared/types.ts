@@ -22,11 +22,11 @@ export interface TunnelConfig {
   port?: number
   identityFile?: string
   proxyJump?: string
-  /** `-L` specs, e.g. "8042:localhost:80" */
+  /** `-L` specs, e.g. "18080:localhost:80" */
   localForwards?: string[]
   /** `-R` specs, e.g. "2222:localhost:22" */
   remoteForwards?: string[]
-  /** `-D` socks specs, e.g. "127.0.0.1:1080" */
+  /** `-D` socks specs, e.g. "127.0.0.1:11080" */
   dynamicForwards?: string[]
   /** Raw `-o Key=Value` options. */
   sshOptions?: Record<string, string>
@@ -91,7 +91,7 @@ export interface ForwardEntry {
   bindPort: number | null
   targetHost: string | null
   targetPort: number | null
-  /** human label, e.g. "8042 -> localhost:80" */
+  /** human label, e.g. "18080 -> localhost:80" */
   label: string
   source: 'product' | 'ssh-config'
 }

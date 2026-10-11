@@ -6,16 +6,16 @@ import { resolveAll } from '../src/main/resolver.ts'
 import type { TunnelConfig } from '../src/shared/types.ts'
 
 const tunnels: TunnelConfig[] = [
-  { id: 'server100', host: 'server100', enabled: true },
+  { id: 'web-01', host: 'web-01', enabled: true },
   // same host, but with a product-level forward to test merging + tagging
   {
-    id: 'server100+product',
-    host: 'server100',
+    id: 'web-01+product',
+    host: 'web-01',
     enabled: true,
     localForwards: ['9999:localhost:9999']
   },
-  { id: '4090', host: '4090', enabled: true },
-  { id: 'jump57', host: 'jump57', enabled: true }
+  { id: 'db-01', host: 'db-01', enabled: true },
+  { id: 'bastion', host: 'bastion', enabled: true }
 ]
 
 const resolved = await resolveAll(tunnels)

@@ -109,7 +109,7 @@ const zh: Dict = {
   'settings.delete': '删除',
   'settings.namePh': '名称',
   'settings.host': '主机 / Host 别名',
-  'settings.hostHint': '要连的机器。推荐直接填 ~/.ssh/config 里的 Host 名(如 server100);也可填 IP 或域名。',
+  'settings.hostHint': '要连的机器。推荐直接填 ~/.ssh/config 里的 Host 名(如 web-01);也可填 IP 或域名。',
   'settings.user': '用户',
   'settings.userPh': '(继承 ssh config)',
   'settings.userHint': '登录用户名。留空则用 ssh config 里的,再没有就用你 Mac 的账户名。',
@@ -120,10 +120,10 @@ const zh: Dict = {
   'settings.identity': '私钥 IdentityFile',
   'settings.identityHint': '登录用的私钥文件,留空让 ssh 自动选择。',
   'settings.proxyJump': '跳板 ProxyJump',
-  'settings.proxyJumpHint': '先经哪台机器再连目标(跳板机),填别名如 jump57。',
+  'settings.proxyJumpHint': '先经哪台机器再连目标(跳板机),填别名如 bastion。',
   'settings.localForward': '本地转发',
   'settings.localForwardDesc':
-    '把远程的某个服务搬到本机。格式「本机端口:目标主机:目标端口」。例 8042:localhost:80 —— 之后访问本机的 8042,就等于访问服务器上的 80。',
+    '把远程的某个服务搬到本机。格式「本机端口:目标主机:目标端口」。例 18080:localhost:80 —— 之后访问本机的 18080,就等于访问服务器上的 80。',
   'settings.remoteForward': '远程转发',
   'settings.remoteForwardDesc':
     '把本机的服务暴露到远程。格式「远程端口:目标主机:目标端口」。例 2222:localhost:22 —— 之后在服务器上连 2222,就连回你本机的 22。',
@@ -263,7 +263,7 @@ const en: Dict = {
   'settings.namePh': 'Name',
   'settings.host': 'Host / alias',
   'settings.hostHint':
-    'The machine to connect to. Prefer a Host alias from ~/.ssh/config (e.g. server100); an IP or domain also works.',
+    'The machine to connect to. Prefer a Host alias from ~/.ssh/config (e.g. web-01); an IP or domain also works.',
   'settings.user': 'User',
   'settings.userPh': '(inherit from ssh config)',
   'settings.userHint':
@@ -276,10 +276,10 @@ const en: Dict = {
   'settings.identity': 'Identity file',
   'settings.identityHint': 'Private key to log in with; leave blank to let ssh choose.',
   'settings.proxyJump': 'ProxyJump',
-  'settings.proxyJumpHint': 'Jump host to route through first, e.g. jump57.',
+  'settings.proxyJumpHint': 'Jump host to route through first, e.g. bastion.',
   'settings.localForward': 'Local forward',
   'settings.localForwardDesc':
-    'Bring a remote service to this machine. Format "local_port:target_host:target_port". Example 8042:localhost:80 — hitting local 8042 then reaches port 80 on the server.',
+    'Bring a remote service to this machine. Format "local_port:target_host:target_port". Example 18080:localhost:80 — hitting local 18080 then reaches port 80 on the server.',
   'settings.remoteForward': 'Remote forward',
   'settings.remoteForwardDesc':
     'Expose a local service on the remote. Format "remote_port:target_host:target_port". Example 2222:localhost:22 — connecting to 2222 on the server comes back to your local 22.',

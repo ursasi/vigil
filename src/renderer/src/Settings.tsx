@@ -188,7 +188,7 @@ function TunnelForm({ tunnel, onChange, onRemove, t }: TunnelFormProps): JSX.Ele
           </label>
           <input
             value={tunnel.host}
-            placeholder="server100"
+            placeholder="web-01"
             spellCheck={false}
             onChange={(e) => onChange({ host: e.target.value })}
           />
@@ -240,7 +240,7 @@ function TunnelForm({ tunnel, onChange, onRemove, t }: TunnelFormProps): JSX.Ele
               <label className="field__label">{t('settings.proxyJump')}</label>
               <input
                 value={tunnel.proxyJump ?? ''}
-                placeholder="jump57"
+                placeholder="bastion"
                 spellCheck={false}
                 onChange={(e) => onChange({ proxyJump: e.target.value })}
               />
@@ -253,7 +253,7 @@ function TunnelForm({ tunnel, onChange, onRemove, t }: TunnelFormProps): JSX.Ele
             label={t('settings.localForward')}
             hint="-L"
             desc={t('settings.localForwardDesc')}
-            placeholder="8042:localhost:80"
+            placeholder="18080:localhost:80"
             values={tunnel.localForwards}
             onChange={(v) => onChange({ localForwards: v })}
           />
@@ -271,7 +271,7 @@ function TunnelForm({ tunnel, onChange, onRemove, t }: TunnelFormProps): JSX.Ele
             label={t('settings.dynamicForward')}
             hint="-D, SOCKS"
             desc={t('settings.dynamicForwardDesc')}
-            placeholder="127.0.0.1:1080"
+            placeholder="127.0.0.1:11080"
             values={tunnel.dynamicForwards}
             onChange={(v) => onChange({ dynamicForwards: v })}
           />

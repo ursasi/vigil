@@ -17,16 +17,7 @@ export function configPath(): string {
 const DEFAULT_CONFIG: VigilConfig = {
   version: 1,
   notifyOnPowerEvents: true,
-  tunnels: [
-    {
-      id: 'server100',
-      name: 'server100 (via jump57)',
-      host: 'server100',
-      enabled: true,
-      autoReconnect: true,
-      notifyOnReconnect: true
-    }
-  ]
+  tunnels: []
 }
 
 function str(v: unknown): string | undefined {

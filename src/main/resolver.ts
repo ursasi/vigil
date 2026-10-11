@@ -70,7 +70,7 @@ function parseKeyValues(stdout: string): Map<string, string[]> {
 
 const first = (m: Map<string, string[]>, key: string): string | undefined => m.get(key)?.[0]
 
-/** Parse "[127.0.0.1]:1080" | "127.0.0.1:1080" | "8042" | "[::1]:80". */
+/** Parse "[127.0.0.1]:1080" | "127.0.0.1:11080" | "18080" | "[::1]:80". */
 function parseEndpoint(token: string): { address: string | null; port: number | null } {
   if (!token) return { address: null, port: null }
   if (token.startsWith('[')) {
