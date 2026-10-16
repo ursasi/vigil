@@ -173,8 +173,13 @@ xattr -dr com.apple.quarantine /Applications/Vigil.app
 - Node.js ≥ 20.19 (≥ 22 recommended), pnpm
 - The system `ssh`
 
-> `pnpm install` could hang on the Electron binary download if you're behind a
-> proxy — this repo already sets `electron_mirror` in `.npmrc`.
+> This repo ships **no preset mirror**. If you need one for the Electron binary
+download, pass it as an environment variable — pnpm does not forward `.npmrc`'s
+`electron_mirror` into postinstall scripts, so the env var is the only route:
+>
+> ```sh
+> ELECTRON_MIRROR=https://npmmirror.com/mirrors/electron/ pnpm install
+> ```
 
 ## Quick start
 
