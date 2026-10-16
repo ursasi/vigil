@@ -4,6 +4,7 @@
   "description": "SSH tunnels that never sleep.",
   "main": "./out/main/index.mjs",
   "scripts": {
+    "postinstall": "node scripts/ensure-electron.mjs",
     "dev": "electron-vite dev",
     "build": "electron-vite build",
     "start": "electron-vite preview",

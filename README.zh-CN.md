@@ -164,8 +164,13 @@ xattr -dr com.apple.quarantine /Applications/Vigil.app
 - Node.js ≥ 20.19(推荐 ≥ 22)、pnpm
 - 系统自带 `ssh`
 
-> 如果你在用代理,`pnpm install` 可能会卡在 Electron 二进制下载 —— 本仓库已经在
-> `.npmrc` 里配好了 `electron_mirror`。
+> 本仓库**不预设任何镜像**。如果你需要通过镜像下载 Electron 二进制,用环境变量
+> 传进去即可 —— 注意 pnpm 不会把 `.npmrc` 里的 `electron_mirror` 传进 postinstall
+> 脚本,所以只能走环境变量:
+>
+> ```sh
+> ELECTRON_MIRROR=https://npmmirror.com/mirrors/electron/ pnpm install
+> ```
 
 ## 快速开始
 
